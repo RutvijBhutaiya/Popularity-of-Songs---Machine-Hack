@@ -86,6 +86,8 @@ Corr1 = corrplot(cor(songs[, c(5,6,7,8,9)]), type = 'upper', order = 'hclust',
 Corr2 = corrplot(cor(songs[, c(5,10,11,12,13,14,15)]), type = 'upper', order = 'hclust',
                 col = brewer.pal(n=7, name = 'YlOrBr')) 
 
+# Sec_Stamp and Hour_stamp and Min_Stamp has high correlaition 
+
 
 ## Pivot table analysis
 
@@ -119,8 +121,11 @@ hist(Followers)
 
 ## Remove Extreem Outlier from Comments Feature
 
-songs = songs[-54240,]
+songs = songs[-c(54240,18714,58783,8896), ]
 attach(songs)
+
+boxplot(Comments, main = 'Comments', col = 'coral')
+
 
 ## NOTES:
 # Oultiers exisits in Comments and Followers
@@ -137,7 +142,6 @@ plot(Popularity, Likes, main = 'Popularity & Likes', col  = 'coral', abline(lm(L
 
 
 write.csv(songs, 'songs_clean.csv')
-
 
 
 
