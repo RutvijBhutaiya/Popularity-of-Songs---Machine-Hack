@@ -115,16 +115,42 @@ boxplot(Popularity, main = 'Popularity', col = 'coral')
 boxplot(Followers, main = 'Followers', col = 'coral')
 
 
+quantile(Comments, 0.97)
+
+quantile(Followers,0.95)
+
+
+## Remove Outliers based on 97% quantile range: for Comments and less than 20 comments
+
+songs = songs[which(Comments > 20  & Comments <= 686 &
+                                    Followers <= 216585), ]
+
+#songs = songs[which(Comments <= 686 & Comments > 0 &
+#                      Followers <= 2165852), ]
+
+
+attach(songs)                    
+
 ## Data Discribution : Histogram
 
-hist(Followers)
+hist(Comments)
+
+
+library(forecast)
+
+songs$Comments = log(songs$Comments)
+
+attach(songs)
+
+BoxCox.lambda(Comments)
+attach(songs)
 
 ## Remove Extreem Outlier from Comments Feature
 
-songs = songs[-c(54240,18714,58783,8896), ]
-attach(songs)
+#songs = songs[-c(54240,18714,58783,8896), ]
+#attach(songs)
 
-boxplot(Comments, main = 'Comments', col = 'coral')
+# boxplot(Comments, main = 'Comments', col = 'coral')
 
 
 ## NOTES:
@@ -141,8 +167,10 @@ plot(Comments, Likes, main = 'Comments & Likes', col  = 'coral', abline(lm(Likes
 plot(Popularity, Likes, main = 'Popularity & Likes', col  = 'coral', abline(lm(Likes~Popularity)))
 
 
-write.csv(songs, 'songs_clean.csv')
+#write.csv(songs, 'songs_clean.csv')
 
+
+write.csv(songs, 'songs_clean_outliers.csv')
 
 
 
