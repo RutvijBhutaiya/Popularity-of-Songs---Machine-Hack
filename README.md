@@ -22,4 +22,11 @@
 
 ## Objective
 
-Build a prediction Predict the views of songs 
+Build a prediction algorithm to Predict the views of songs based on the given features like, Songs Name, Songs launch time and date, Followers, Popularity etc. 
+
+<br>
+
+## Approach
+
+- Download the data from [Machine Hack](https://www.machinehack.com/course/chartbusters-prediction-foretell-the-popularity-of-songs/)
+- 
