@@ -167,11 +167,23 @@ plot(Comments, Likes, main = 'Comments & Likes', col  = 'coral', abline(lm(Likes
 plot(Popularity, Likes, main = 'Popularity & Likes', col  = 'coral', abline(lm(Likes~Popularity)))
 
 
+## Create dummy variables for feature : Genre
+
+Genre.matrix = model.matrix(~ songs$Genre -1, data = songs)
+
+songs = data.frame(songs, Genre.matrix)
+
+songs = songs[, -3]
+
+attach(songs)
+
 #write.csv(songs, 'songs_clean.csv')
 
 
-write.csv(songs, 'songs_clean_outliers.csv')
+#write.csv(songs, 'songs_clean_outliers.csv')
 
+
+#write.csv(songs, 'songs_clean_outliers_with_dummy.csv')
 
 
 
