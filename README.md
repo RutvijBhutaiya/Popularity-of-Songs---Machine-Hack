@@ -81,6 +81,33 @@ WOrd char is an interesting way to show the hidden art in the features. In the a
 
 As we can see that LIL UZI VERT is the most viewed song, but has one of the least followers. Similarly, Mad Decent has low viewership but one of the highest followers. 
 
+<br>
+
+#### Scatter Plot Views vs.  Likes, Followers, Popularity, Comments
+
+<p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/75329598-db480600-58a5-11ea-9483-92c90beb3d67.png>
+  
+As we can see in the above scatter plot with respect to Genre. We can clearly identify allmusic and some marks on danceedm. 
+
+However, we can also see the skewness on COmments and Followers. 
+
+<br>
+
+#### Box Plot - Outliers
+
+<p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/75329772-4560ab00-58a6-11ea-9692-3ff7264cf571.png>
+  
+Last last Tableau analysis we have compared time with respect to outliers at time 00:00:00.
+
+As we can see, the stamp on songs has 00:00 for minute and seconds  it is obvious that most of the songs launched at 00:00. But, we can also see the many songs were launched at midnight 00 hours. 
+                       
+<br>
+
+
+                       
+
+
+
 
 
 
