@@ -54,8 +54,12 @@ Hence, we can say that high followers does not mean high views.
 
 <p align="center"><img width=89% src=https://user-images.githubusercontent.com/44467789/75223563-be8bcf80-57cc-11ea-97d2-81bdd1be4b07.png>
   
-  
-  
+As we can see in the line chart, popularity and likes are continiously increasing. However, Views has seen slight decline since 2016. This could be due to followers, as we can also notice the decline on followers from 2015-16. 
+
+One thing in common we have notices that from year 2011, al the variables are increasing with good delta. Hence, which also leads to more Views.  
+
+
+<br>
   
 #### Year wise Genre Views  
   
@@ -65,7 +69,7 @@ As we can see in the above line chart from tableau, for Genre, Views for danceed
 
 For analysis we removed allmusic from the Genre list due to biaseness. Also, we excluded 2019 from the chart due to data avaliable for only few months of 2019 year. 
 
-
+One intresting this we identified, is that rock music was the only player till 2000. So, we can assume that all the music creativity comes after or we have data for all other Genre after 2000. 
 
 
 
