@@ -54,4 +54,19 @@ Hence, we can say that high followers does not mean high views.
 
 <p align="center"><img width=89% src=https://user-images.githubusercontent.com/44467789/75223563-be8bcf80-57cc-11ea-97d2-81bdd1be4b07.png>
   
-As we cansee in the above line chart from tableau, 
+  
+  
+  
+#### Year wise Genre Views  
+  
+<p align="center"><img width=89% src=https://user-images.githubusercontent.com/44467789/75327507-85be2a00-58a2-11ea-85b4-a3044936a1af.png>   
+  
+As we can see in the above line chart from tableau, for Genre, Views for danceedm has increased rapidly in 2014-15 and followed with repid declient in 2016-18.  
+
+For analysis we removed allmusic from the Genre list due to biaseness. Also, we excluded 2019 from the chart due to data avaliable for only few months of 2019 year. 
+
+
+
+
+
+
