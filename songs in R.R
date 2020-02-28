@@ -155,8 +155,8 @@ attach(songs)
 
 ## NOTES:
 # Oultiers exisits in Comments and Followers
-# Due to High Correlation between Views and Comments we decided not to remove Outliers.
-# But We removed one extreem outlier. 
+# Due to High Correlation between Views and Comments we decided not to remove Outliers. (Option)
+# But We removed one extreem outlier. (Option)
 # Due to Low correlation between Views and Followers 
 # We analysized Highest followers are with Future - and that is the outliers. But can't remove the Genre 
 
@@ -177,13 +177,37 @@ songs = songs[, -3]
 
 attach(songs)
 
+
+## Label Encode for :Name
+
+library(CatEncoders)
+
+# Remove SOngs_name
+
+songs = songs[, -3]
+attach(songs)
+
+factors = names(which(sapply(songs, is.factor)))
+
+for (i in factors){
+  encode <- LabelEncoder.fit(songs[, i])
+  songs[, i] <- transform(encode, songs[, i])
+}
+
+attach(songs)
+
 #write.csv(songs, 'songs_clean.csv')
 
 
 #write.csv(songs, 'songs_clean_outliers.csv')
 
 
-#write.csv(songs, 'songs_clean_outliers_with_dummy.csv')
+#write.csv(songs, 'songs_dummy_encode.csv')
+
+
+# write.csv(songs, 'songs_clean_outliers_with_dummy_Encoder.csv')
+
+
 
 
 
