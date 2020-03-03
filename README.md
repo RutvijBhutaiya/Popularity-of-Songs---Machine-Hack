@@ -15,7 +15,8 @@
 - [Approach](#approach)
 - [Study Dataset Creation](#study-dataset-creation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
-- 
+- [Feature Analysis](#feature-analysis)
+-
 
 <br>
 
@@ -104,7 +105,9 @@ As we can see, the stamp on songs has 00:00 for minute and seconds  it is obviou
 <br>
 
 
-                       
+## Feature Analysis 
+
+
 
 
 
