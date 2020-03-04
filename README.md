@@ -115,7 +115,64 @@ From the dataset structure, Genre and Songs_name are factors.
 
 1. Data file - with clean data but with outliers and without factor encoding - [songs_clean.csv](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/songs_clean.csv)
 
-2. Data file -  with 
+2. Data file -  without outilers and without factor encoding - [songs_clean_outliers.csv](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/songs_clean_outliers.csv)
+
+3. Data file - with outliers and without factor encoding - [songs_dummy_encode.csv](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/songs_clean_outliers.csv)
+
+4. Dat file - without outliers and with factor encoding - [songs_clean_outliers_with_dummy_Encoding.csv](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/songs_clean_outliers_with_dummy_Encoder.csv)
+
+After that we begin our study with converting Likes and Populatity features into numeric, and we also checked missing values, if any. 
+
+```
+## Convert likes and popularity to Numeric
+
+songs$Likes = as.numeric(songs$Likes)
+songs$Popularity = as.numeric(songs$Popularity)
+
+# Missing Values
+
+colSums(is.na(songs))
+```
+
+The important and one of the significant feature is Timestamp. And hence, we extracted the details into date and time formate with diffrent feature creation,
+
+```
+# Timestamp Feature Expantion
+## Create Seperate Feature for Day, Month, Year, Hour, Min, Sec 
+
+songs$Day_Stamp = format(as.POSIXct(strptime(songs$Timestamp, "%Y-%m-%d %H:%M:%S", tz="")), 
+                   format = "%d")
+
+songs$Month_Stamp = format(as.POSIXct(strptime(songs$Timestamp, "%Y-%m-%d %H:%M:%S", tz="")), 
+                         format = "%m")
+
+songs$Year_Stamp = format(as.POSIXct(strptime(songs$Timestamp, "%Y-%m-%d %H:%M:%S", tz="")), 
+                         format = "%Y")
+
+songs$Hour_Stamp = format(as.POSIXct(strptime(songs$Timestamp, "%Y-%m-%d %H:%M:%S", tz="")), 
+                         format = "%H")
+
+songs$Min_Stamp = format(as.POSIXct(strptime(songs$Timestamp, "%Y-%m-%d %H:%M:%S", tz="")), 
+                         format = "%M")
+
+songs$Sec_Stamp = format(as.POSIXct(strptime(songs$Timestamp, "%Y-%m-%d %H:%M:%S", tz="")), 
+                         format = "%S")
+
+attach(songs)
+
+songs = songs[ ,-6]
+
+# Convert Char into numbers
+
+songs$Day_Stamp = as.numeric(songs$Day_Stamp)
+songs$Month_Stamp = as.numeric(songs$Month_Stamp)
+songs$Year_Stamp = as.numeric(songs$Year_Stamp)
+songs$Hour_Stamp = as.numeric(songs$Hour_Stamp)
+songs$Min_Stamp = as.numeric(songs$Min_Stamp)
+songs$Sec_Stamp = as.numeric(songs$Sec_Stamp)
+
+```
+
 
 
 
