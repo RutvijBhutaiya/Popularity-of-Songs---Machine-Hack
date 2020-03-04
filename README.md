@@ -107,7 +107,15 @@ As we can see, the stamp on songs has 00:00 for minute and seconds  it is obviou
 
 ## Feature Analysis 
 
+In Feature analysis and data cleaning, we did few experiments with data. In this experiments we created 4 diffrent train datasets from main [data_train.csv](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/Data_Train.csv) file. 
 
+We came with an idea that we don't only need clean and perfect data to run the models. We also wanted the domain view befor we clean data. Hence, we decided to crat 4 diffrent datasets and build models and check the accuracy on all the diffrent train dataset.
+
+From the dataset structure, Genre and Songs_name are factors. 
+
+1. Data file - with clean data but with outliers and without factor encoding - [songs_clean.csv](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/songs_clean.csv)
+
+2. Data file -  with 
 
 
 
