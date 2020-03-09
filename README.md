@@ -173,7 +173,64 @@ songs$Sec_Stamp = as.numeric(songs$Sec_Stamp)
 
 ```
 
+In the following chart we have shown Correlation plot - Plot 1 gives correlation view for independent variables like, Views, Followers etc and Plot 2 gives correlation view for independent variables with respect to time like, Yesr_Stamp, Min_Stamp etc. 
 
+
+<p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/76192685-690de480-6208-11ea-9d86-9263a020e2a8.png>
+                                              Corr Plot 1
+                                                       
+  
+<p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/76192687-6c08d500-6208-11ea-987a-f8d1ae01b9ee.png>
+                                              Corr Plot 2
+  
+Similarly, we did analysis for variables with the use of rpivotTable. And found the following points. This points represents, the highest numbers of likes (target var) for partucular features. 
+
+- #### Highest Likes to Names: LIL UZI VERT, Kodak Black and Future 
+- #### Highest Likes to Genre: all Music, danceedm 
+- #### Highest Likes in a Year: 2025 2016 2017
+- #### Highest Likes in a month: March and December
+- #### Highest Likes on a day: 15th, 16th, 17th, 26th
+- #### Highest Likes for an hour: 0th hour Mindnight - 18th, 19th, 22nd (Evening)
+- #### Highest Likes for a min: Starting of an hour 0,1,2,3,etc. 
+- #### Highest Likes for a sec: Starting of a sec 0,1,2,3,etc.
+                                                     
+#### Outliers Study
+
+Following box plot share the outliers, 
+
+<p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/76193326-c22a4800-6209-11ea-836f-4a059fb80ca5.png>
+  
+Features like, Comments and Followers variables carries outliers, However, as mentioned earlier, we already put dataset seperate to do a study on the data. 
+
+And in following study, we removed the outliers and created new dataset for diffrent study. 
+
+```
+quantile(Comments, 0.97)
+
+quantile(Followers,0.95)
+
+
+## Remove Outliers based on 97% quantile range: for Comments and less than 20 comments
+
+songs = songs[which(Comments > 20  & Comments <= 686 &
+                                    Followers <= 216585), ]                     
+```
+
+Along with outliers we also studied skewness in the data,
+
+```
+library(forecast)
+
+songs$Comments = log(songs$Comments)
+
+attach(songs)
+
+BoxCox.lambda(Comments)
+attach(songs)
+
+```
+
+<p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/76193729-a6737180-620a-11ea-99ec-b6e2f9619dd9.png>
 
 
 
