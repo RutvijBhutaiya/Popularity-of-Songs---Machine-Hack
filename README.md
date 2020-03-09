@@ -218,6 +218,10 @@ songs = songs[which(Comments > 20  & Comments <= 686 &
 
 Along with outliers we also studied skewness in the data,
 
+Follwoing chart mentions Befor and After normalization for comments data distribution. Highly right skewed, due to '0' comments. 
+
+<p align="center"><img width=85% src=https://user-images.githubusercontent.com/44467789/76194421-1fbf9400-620c-11ea-9747-878d83282faa.png>
+
 ```
 library(forecast)
 
