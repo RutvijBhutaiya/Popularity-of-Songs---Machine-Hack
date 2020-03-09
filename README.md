@@ -16,6 +16,7 @@
 - [Study Dataset Creation](#study-dataset-creation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Feature Analysis](#feature-analysis)
+- [Regression Model](#regression-model)
 -
 
 <br>
@@ -237,6 +238,43 @@ attach(songs)
 <p align="center"><img width=96% src=https://user-images.githubusercontent.com/44467789/76193729-a6737180-620a-11ea-99ec-b6e2f9619dd9.png>
 
 
+Now, for factor variables Songs_name we decided to do factor encoding and for Genre we did one hot encoding. 
+
+Again for this also, we vreated diffrent dataset to study. Hence, we also uploadted the same.
+
+```
+## Create dummy variables for feature : Genre
+
+Genre.matrix = model.matrix(~ songs$Genre -1, data = songs)
+
+songs = data.frame(songs, Genre.matrix)
+
+songs = songs[, -3]
+
+attach(songs)
+
+
+## Label Encode for :Name
+
+library(CatEncoders)
+
+# Remove SOngs_name
+
+songs = songs[, -3]
+attach(songs)
+
+factors = names(which(sapply(songs, is.factor)))
+
+for (i in factors){
+  encode <- LabelEncoder.fit(songs[, i])
+  songs[, i] <- transform(encode, songs[, i])
+}
+
+attach(songs)
+
+```
+
+<br>
 
 
 
