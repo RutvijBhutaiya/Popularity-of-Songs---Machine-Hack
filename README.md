@@ -276,5 +276,12 @@ attach(songs)
 
 <br>
 
+## Regression Model
+
+As we mentioned in the Feature Analysis we did collected results from four diffrent datasets. The purpose of the study was, Is it only to achive low RSME or High RSquared - even if one need to compromise on important data observations. Or was it only to achive better score in terms of RSME or RSquared only. 
+
+Intrestingly we found followinf, doing the study. 
+
+
 
 
