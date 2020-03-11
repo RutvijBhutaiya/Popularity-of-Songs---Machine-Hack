@@ -280,8 +280,17 @@ attach(songs)
 
 As we mentioned in the Feature Analysis we did collected results from four diffrent datasets. The purpose of the study was, Is it only to achive low RSME or High RSquared - even if one need to compromise on important data observations. Or was it only to achive better score in terms of RSME or RSquared only. 
 
-Intrestingly we found followinf, doing the study. 
+Interestingly we found followinf, doing the study. 
 
+```
+## Ridge & Lassos ##
 
+#data = read.csv('songs_clean.csv')
+#data = read.csv('songs_clean_outliers.csv')
+#data = read.csv('songs_dummy_encode.csv')
+#data = read.csv('songs_clean_outliers_with_dummy_Encoder.csv')
+```
+
+We 
 
 
