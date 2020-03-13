@@ -2,7 +2,7 @@
 
 ## Ridge & Lassos ##
 
-#data = read.csv('songs_clean.csv')
+data = read.csv('songs_clean.csv')
 #data = read.csv('songs_clean_outliers.csv')
 #data = read.csv('songs_dummy_encode.csv')
 #data = read.csv('songs_clean_outliers_with_dummy_Encoder.csv')
@@ -15,7 +15,7 @@ str(data)
 
 # Regression only support NUmuric values not charecter/factors
 
-data = data[, -c(1)]
+data = data[, -c(1,2,3,4)]
 attach(data)
 
 
@@ -111,23 +111,29 @@ enet$bestTune
 
 ## Prediction on Validation dataset
 
-predict = predict(lm, val)
-sqrt(mean((val$Views - predict)^2)) 
+predict.lm = predict(lm, val)
 
-predict = predict(ridge, val)
-sqrt(mean((val$Views - predict)^2)) 
 
-predict = predict(lasso, val)
-sqrt(mean((val$Views - predict)^2)) 
+predict.ridge = predict(ridge, val)
+ 
 
-predict = predict(enet, val)
-sqrt(mean((val$Views - predict)^2)) 
+predict.lasso = predict(lasso, val)
+ 
+
+predict.enet = predict(enet, val)
+sqrt(mean((val$Views - predict.enet)^2)) 
 
 # NOTE : Ridge (L2) gives less RMSE
 
 
 
-## Store Results Model wise..
+
+
+
+
+## Store Results Model wise...
+
+
 
 # songs_clean.csv file data
 
@@ -136,6 +142,14 @@ lm.songs.clean.csv = lm$results
 ridge.songs.clean.csv = ridge$results
 
 lasso.songs.clean.csv = lasso$results
+
+
+## 
+predict.lm.songs.clean.csv = sqrt(mean((val$Views - predict.lm)^2)) 
+
+predict.ridge.songs.clean.csv = sqrt(mean((val$Views - predict.ridge)^2))
+
+predict.lasso.songs.clean.csv = sqrt(mean((val$Views - predict.lasso)^2))
 
 
 
@@ -148,6 +162,15 @@ ridge.songs_clean_outliers.csv = ridge$results
 lasso.songs_clean_outliers.csv = lasso$results
 
 
+##
+predict.lm.songs_clean_outliers.csv = sqrt(mean((val$Views - predict.lm)^2))
+
+predict.ridge.songs_clean_outliers.csv = sqrt(mean((val$Views - predict.ridge)^2))
+
+predict.lasso.songs_clean_outliers.csv = sqrt(mean((val$Views - predict.lasso)^2))
+
+
+
 
 # songs_dummy_encode.csv data
 
@@ -158,6 +181,14 @@ ridge.songs_dummy_encode.csv = ridge$results
 lasso.songs_dummy_encode.csv = lasso$results
 
 
+##
+predict.lm.songs_dummy_encode.csv = sqrt(mean((val$Views - predict.lm)^2))
+
+predict.ridge.songs_dummy_encode.csv = sqrt(mean((val$Views - predict.ridge)^2))
+
+predict.lasso.songs_dummy_encode.csv = sqrt(mean((val$Views - predict.lasso)^2))
+
+
 
 # songs_clean_outliers_with_dummy_Encoder.csv data
 
@@ -166,6 +197,14 @@ lm.songs_clean_outliers_with_dummy_Encoder.csv = lm$results
 ridge.songs_clean_outliers_with_dummy_Encoder.csv = ridge$results
 
 lasso.songs_clean_outliers_with_dummy_Encoder.csv = lasso$results
+
+
+##
+predict.lm.songs_clean_outliers_with_dummy_Encoder.csv = sqrt(mean((val$Views - predict.lm)^2))
+
+predict.ridge.songs_clean_outliers_with_dummy_Encoder.csv = sqrt(mean((val$Views - predict.ridge)^2))
+
+predict.lasso.songs_clean_outliers_with_dummy_Encoder.csv = sqrt(mean((val$Views - predict.lasso)^2))
 
 
 
@@ -196,6 +235,10 @@ RSME.Final.Compare = t(RSME.dataframe)
 RSME.Final.Compare = RSME.Final.Compare[, -c(2,3,4,5)]
 
 View(RSME.Final.Compare)
+
+
+
+
 
 barplot(RSME.Final.Compare, col = 'seagreen')
 
@@ -230,6 +273,25 @@ Rsquared.Final.Compare = Rsquared.Final.Compare[, -c(2,3,4,5)]
 
 RSME_Rsquared.Final.Compare = data.frame(RSME.Final.Compare, Rsquared.Final.Compare)
                 
-                       
-                       
+
+# Predicted DataFrame
+
+Predicted_RSME = data.frame(predict.lm.songs.clean.csv, 
+                            predict.lm.songs_clean_outliers.csv,
+                            predict.lm.songs_dummy_encode.csv,
+                            predict.lm.songs_clean_outliers_with_dummy_Encoder.csv,
+                            predict.ridge.songs.clean.csv,
+                            predict.ridge.songs_clean_outliers.csv,
+                            predict.ridge.songs_dummy_encode.csv,
+                            predict.ridge.songs_clean_outliers_with_dummy_Encoder.csv,
+                            predict.lasso.songs.clean.csv,
+                            predict.lasso.songs_clean_outliers.csv,
+                            predict.lasso.songs_dummy_encode.csv,
+                            predict.lasso.songs_clean_outliers_with_dummy_Encoder.csv)
+
+
+names(Predicted_RSME) = c('Predicted LM Data 1 RMSE', 'Predicted LM Data 2 RMSE', 'Predicted LM Data 3 RMSE', 'Predicted LM Data 4 RMSE',
+                           'Predicted Ridge Data 1 RMSE', 'Predicted Ridge Data 2 RMSE', 'Predicted Ridge Data 3 RMSE', 'Predicted Ridge Data 4 RMSE',
+                           'Predicted Lasso Data 1 RMSE', 'Predicted Lasso Data 2 RMSE', 'Predicted Lasso Data 3 RMSE', 'Predicted Lasso Data 4 RMSE')
+
                        
