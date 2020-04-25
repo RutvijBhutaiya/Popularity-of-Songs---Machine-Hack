@@ -291,6 +291,14 @@ Interestingly we found followinf, doing the study.
 #data = read.csv('songs_clean_outliers_with_dummy_Encoder.csv')
 ```
 
-We 
+For Code on Regression - [Click here](https://github.com/RutvijBhutaiya/Popularity-of-Songs-Machine-Hack/blob/master/Linear%20Ridge%20Lassos%20Regression.R)
+
+<br>
+
+## XGBoost Model
+
+
+
+
 
 
